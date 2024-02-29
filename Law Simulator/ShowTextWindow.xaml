@@ -1,0 +1,93 @@
+﻿<Window x:Class="Law_Simulator.ShowTextWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Law_Simulator"
+        mc:Ignorable="d"
+        Title="Правовой тренажёр" Height="450" Width="800"
+        WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <!-- Стиль для кнопок -->
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="#007ACC"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="FontFamily" Value="Segoe UI"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="5"
+                            Padding="5">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <!-- Эффект при наведении -->
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#005A8C"/>
+                            </Trigger>
+                            <!-- Эффект при нажатии -->
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="#00395F"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid Margin="170,0,170,0" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+            <Border BorderBrush="LightBlue" BorderThickness="2" CornerRadius="5" Margin="10,10,10,0" Grid.Row="0" >
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Text="Пролог" HorizontalAlignment="Center" FontSize="16" Grid.Row="0"/>
+                    <TextBlock TextWrapping="WrapWithOverflow" FontSize="15" Margin="10" Grid.Row="1">
+                    Кондратов П.И, житель г. Нефтеюганска, работающий в Нефтеюганском
+                    отделении ООО "Прорыв", 15 августа был уволен за совершенный прогул.
+                    (Общество зарегистрировано в г.Тобольске) Однако решением районного
+                    суда от 20 сентября он был восстановлен на прежней работе. В декабре
+                    Кондратов обратился к вам с просьбой помочь ему взыскать моральный вред
+                    в сумме 50 тыс.руб
+                    </TextBlock>
+                </Grid>
+            </Border>
+
+            <Grid Grid.Row="1" Margin="0,30,0,0">
+                <Grid.RowDefinitions >
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+
+                <Button Grid.Row="0" Click="Button_Click">
+                    <TextBlock TextWrapping="Wrap">Откажу в помощи т.к. истёк 3-х месячный срок со дня увольнения</TextBlock>
+                </Button>
+
+                <Button Grid.Row="1" Click="Button_Click_1">
+                    <TextBlock TextWrapping="Wrap">Направлю претензию работадателю с предложением возместить моральный вред</TextBlock>
+                </Button>
+
+                <Button Grid.Row="2" Click="Button_Click_2">
+                    <TextBlock TextWrapping="Wrap">Подготовлю и направлю обращение в суд</TextBlock>
+                </Button>
+
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
